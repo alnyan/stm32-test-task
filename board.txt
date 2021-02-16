@@ -1,0 +1,22 @@
+Board description
+
+This project targets STM32F7xx MCU series and
+the target board is Discovery for 767zi.
+
+Pin layout:
+
+    PC6 .. PC13 - sampled GPIO pins
+    (PC13 is wired to a push button on my discovery)
+
+    PD5         - USART2_TX for packet transmission
+
+Used peripherals:
+
+    * General-purpose timer for 1kHz interrupt rate
+    * GPIO
+    * USART2
+    * CRC accelerator
+
+The pin state is sampled every 1ms and is stored in a ping-pong buffer in the
+interrupt routine. The non-interrupt code waits for the buffer swap and
+flushes the back buffer to make it available for upcoming samples.
