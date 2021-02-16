@@ -20,3 +20,4 @@ Used peripherals:
 The pin state is sampled every 1ms and is stored in a ping-pong buffer in the
 interrupt routine. The non-interrupt code waits for the buffer swap and
 flushes the back buffer to make it available for upcoming samples.
+
